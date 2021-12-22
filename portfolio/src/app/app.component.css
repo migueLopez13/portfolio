@@ -10,3 +10,7 @@ app-nav {
   grid-area: content;
   background-color: crimson;
 }
+
+.hidden {
+  display: none;
+}

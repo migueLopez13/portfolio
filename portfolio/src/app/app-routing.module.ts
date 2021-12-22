@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'portfolio',
     loadChildren: () =>
       import('./modules/portfolio/portfolio.module').then(
         (m) => m.PortfolioModule
@@ -13,6 +13,20 @@ const routes: Routes = [
     path: 'contact',
     loadChildren: () =>
       import('./modules/contact/contact.module').then((m) => m.ContactModule),
+  },
+  {
+    path: 'information',
+    loadChildren: () =>
+      import('./modules/information/information.module').then(
+        (m) => m.InformationModule
+      ),
+  },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./modules/portfolio/portfolio.module').then(
+        (m) => m.PortfolioModule
+      ),
   },
 ];
 
