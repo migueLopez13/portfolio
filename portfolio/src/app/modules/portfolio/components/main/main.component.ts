@@ -1,11 +1,20 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css'],
 })
-export class MainComponent implements AfterViewInit {
+export class MainComponent implements AfterViewInit, OnInit {
+  @ViewChild('first') first!: ElementRef;
+  @ViewChild('second') second!: ElementRef;
+  @ViewChild('third') third!: ElementRef;
   @ViewChild('canvas') canvas!: ElementRef;
   ctx!: CanvasRenderingContext2D;
   rect!: DOMRect;
@@ -14,6 +23,17 @@ export class MainComponent implements AfterViewInit {
   painting = false;
 
   constructor() {}
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.first.nativeElement.style.display = 'block';
+    }, 0);
+    setTimeout(() => {
+      this.second.nativeElement.style.display = 'block';
+    }, 500);
+    setTimeout(() => {
+      this.third.nativeElement.style.display = 'block';
+    }, 2500);
+  }
 
   ngAfterViewInit(): void {
     this.ctx = this.canvas.nativeElement.getContext('2d');

@@ -4,11 +4,11 @@ app-header {
 }
 app-nav {
   grid-area: nav;
-  background-color: green;
+  background-color: #1a7c7e;
 }
 .router-container {
   grid-area: content;
-  background-color: crimson;
+  background-image: url("../assets/background-canvas.gif");
 }
 .full-view {
   background-color: crimson;
