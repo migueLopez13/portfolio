@@ -33,6 +33,7 @@ canvas {
 }
 div {
   display: none;
+  padding: 10px;
 }
 .wrap-text div.first {
   overflow: hidden;
