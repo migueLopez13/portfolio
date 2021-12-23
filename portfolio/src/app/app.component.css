@@ -10,6 +10,11 @@ app-nav {
   grid-area: content;
   background-color: crimson;
 }
+.full-view {
+  background-color: crimson;
+  width: 100vw;
+  height: 100vh;
+}
 
 .hidden {
   display: none;

@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "Header";
+  src: url("../../../../../assets/FiddlersCoveBold-7JJV.otf");
+}
+canvas {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../../../../assets/background-canvas.gif");
+}
+.wrap-text {
+  position: absolute;
+  top: 25%;
+  left: 40px;
+  display: flex;
+  flex-direction: column;
+  font-family: "Header", cursive;
+  font-size: 100px;
+  text-shadow: 1px 1px 4px #0bc9cd, -1px -1px 4px crimson;
+}
