@@ -22,7 +22,7 @@ canvas {
 }
 .wrap-text {
   position: absolute;
-  top: 20%;
+  top: 25%;
   left: 10%;
   display: flex;
   flex-direction: column;
