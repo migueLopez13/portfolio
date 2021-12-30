@@ -6,6 +6,7 @@ span {
   border-top: 1px solid #0bc9cd;
   align-items: center;
   justify-content: center;
+  padding: 5px;
 }
 span:last-child {
   border-bottom: 1px solid #0bc9cd;
@@ -13,4 +14,9 @@ span:last-child {
 .button {
   cursor: pointer;
   color: #0bc9cd;
+}
+.button:hover {
+  color: black;
+  background-color: #1d9395;
+  text-shadow: red 1px 1px 2px;
 }
