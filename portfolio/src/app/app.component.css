@@ -4,7 +4,7 @@ app-header {
 }
 app-nav {
   grid-area: nav;
-  background-color: #360d58;
+  background-image: url("../assets/background-canvas.gif");
   display: flex;
   flex-direction: column;
   justify-content: center;
