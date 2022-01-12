@@ -1,5 +1,11 @@
 <main>
-  <canvas #canvas> </canvas>
+  <ng-particles
+    #id
+    [options]="particlesOptions"
+    (particlesLoaded)="particlesLoaded($event)"
+    (particlesInit)="particlesInit($event)"
+  >
+  </ng-particles>
   <div class="wrap-text">
     <div class="presentation-text first" #first>
       <span class="word">H</span>

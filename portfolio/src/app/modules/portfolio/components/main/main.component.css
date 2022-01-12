@@ -11,15 +11,7 @@
   font-family: "Header";
   src: url("../../../../../assets/FiddlersCoveBold-7JJV.otf");
 }
-main {
-  background-image: url("../../../../../assets/background-canvas.gif");
-}
-canvas {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-}
+
 .wrap-text {
   position: absolute;
   top: 25%;
@@ -30,6 +22,7 @@ canvas {
   font-size: 120px;
   text-shadow: 1px 1px 4px #0bc9cd, -1px -1px 4px crimson;
   letter-spacing: 3px;
+  z-index: 1;
 }
 div {
   display: none;

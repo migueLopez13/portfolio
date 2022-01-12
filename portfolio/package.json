@@ -19,8 +19,10 @@
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
     "canvas": "^2.8.0",
+    "ng-particles": "^2.22.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
+    "tsparticles": "^1.39.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

@@ -5,22 +5,22 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-
+import {
+  Container,
+  IOptions,
+  Main,
+  RecursivePartial,
+  tsParticles,
+} from 'tsparticles';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css'],
 })
-export class MainComponent implements AfterViewInit, OnInit {
+export class MainComponent implements OnInit {
   @ViewChild('first') first!: ElementRef;
   @ViewChild('second') second!: ElementRef;
   @ViewChild('third') third!: ElementRef;
-  @ViewChild('canvas') canvas!: ElementRef;
-  ctx!: CanvasRenderingContext2D;
-  rect!: DOMRect;
-  x = 0;
-  y = 0;
-  painting = false;
 
   constructor() {}
   ngOnInit(): void {
@@ -35,55 +35,89 @@ export class MainComponent implements AfterViewInit, OnInit {
     }, 2500);
   }
 
-  ngAfterViewInit(): void {
-    this.ctx = this.canvas.nativeElement.getContext('2d');
-    this.ctx.canvas.width = window.innerWidth;
-    this.ctx.canvas.height = window.innerHeight;
-    this.rect = this.canvas.nativeElement.getBoundingClientRect();
-    this.listenerMouseEnter();
-    this.listenerMouseMove();
-    this.listenerMouseOut();
+  particlesOptions: RecursivePartial<IOptions> = {
+    background: {
+      color: {
+        value: '#000000',
+      },
+    },
+    fpsLimit: 60,
+    interactivity: {
+      events: {
+        onClick: {
+          enable: true,
+          mode: 'push',
+        },
+        onHover: {
+          enable: true,
+          mode: 'repulse',
+        },
+        resize: true,
+      },
+      modes: {
+        bubble: {
+          distance: 400,
+          duration: 2,
+          opacity: 0.8,
+          size: 40,
+        },
+        push: {
+          quantity: 4,
+        },
+        repulse: {
+          distance: 200,
+          duration: 0.4,
+        },
+      },
+    },
+    particles: {
+      color: {
+        value: '#C32C2C',
+      },
+      links: {
+        color: '#1AC4C4',
+        distance: 150,
+        enable: true,
+        opacity: 0.5,
+        width: 1,
+      },
+      collisions: {
+        enable: true,
+      },
+      move: {
+        direction: 'none',
+        enable: true,
+        outModes: 'bounce',
+        random: false,
+        speed: 3,
+        straight: false,
+      },
+      number: {
+        density: {
+          enable: true,
+          area: 800,
+        },
+        value: 80,
+      },
+      opacity: {
+        value: 0.5,
+      },
+      shape: {
+        type: 'circle',
+      },
+      size: {
+        random: true,
+        value: 5,
+      },
+    },
+    detectRetina: true,
+  };
+
+  particlesLoaded(container: Container): void {
+    console.log(container);
   }
 
-  public listenerMouseEnter() {
-    this.canvas.nativeElement.addEventListener(
-      'mouseenter',
-      (e: MouseEvent) => {
-        this.x = e.clientX - this.rect.left;
-        this.y = e.clientY - this.rect.top;
-        this.painting = true;
-      }
-    );
-  }
-
-  public listenerMouseMove() {
-    this.canvas.nativeElement.addEventListener('mousemove', (e: MouseEvent) => {
-      if (this.painting) {
-        let xf = e.clientX - this.rect.left;
-        let yf = e.clientY - this.rect.top;
-
-        this.paint(this.x, this.y, xf, yf);
-
-        this.x = xf;
-        this.y = yf;
-      }
-    });
-  }
-
-  public listenerMouseOut() {
-    this.canvas.nativeElement.addEventListener('mouseout', (e: MouseEvent) => {
-      this.painting = false;
-      this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    });
-  }
-
-  public paint(xi: number, yi: number, xf: number, yf: number) {
-    this.ctx.beginPath();
-    this.ctx.strokeStyle = '#0bc9cd';
-    this.ctx.lineWidth = 1;
-    this.ctx.moveTo(xi, yi);
-    this.ctx.lineTo(xf, yf);
-    this.ctx.stroke();
-    this.ctx.closePath();
+  particlesInit(main: Main): void {
+    console.log(main);
   }
 }

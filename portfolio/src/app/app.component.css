@@ -4,7 +4,6 @@ app-header {
 }
 app-nav {
   grid-area: nav;
-  background-image: url("../assets/background-canvas.gif");
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,7 +12,6 @@ app-nav {
 }
 .router-container {
   grid-area: content;
-  background-image: url("../assets/background-canvas.gif");
 }
 .full-view {
   background-color: crimson;
